@@ -8,131 +8,177 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.lordclockan.uvozauta.MainActivity$PlaceholderFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Kalkulator uvoza auta"
-        android:id="@+id/textTitle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <TabHost
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/tabHost">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Cijena:"
-        android:id="@+id/lblPrice"
-        android:layout_below="@+id/textTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/txtPriceBenzin"
-        android:layout_alignBottom="@+id/lblPrice"
-        android:layout_toRightOf="@+id/lblPrice"
-        android:hint="Iznos"
-        android:layout_marginLeft="5dp" />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="€"
-        android:id="@+id/lblEuro"
-        android:layout_alignBottom="@+id/txtPriceBenzin"
-        android:layout_toRightOf="@+id/txtPriceBenzin"
-        android:password="false" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="CO2:"
-        android:id="@+id/lblCo2Benzin"
-        android:layout_marginTop="29dp"
-        android:layout_below="@+id/lblPrice"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                <RelativeLayout
+                    android:id="@+id/tabBenzin"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnBenzin"
-        android:layout_below="@+id/lblPrice"
-        android:layout_toRightOf="@+id/lblPrice" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/naslov"
+                        android:id="@+id/textTitle"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="g/km"
-        android:id="@+id/lblGkm1"
-        android:layout_alignTop="@+id/lblCo2Benzin"
-        android:layout_centerHorizontal="false"
-        android:layout_marginLeft="200dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/cijena"
+                        android:id="@+id/lblPrice"
+                        android:layout_below="@+id/textTitle"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Starost vozila:"
-        android:id="@+id/lblStarost"
-        android:layout_alignBottom="@+id/spnStarost"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="15dp" />
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/txtPriceBenzin"
+                        android:layout_alignBottom="@+id/lblPrice"
+                        android:layout_toRightOf="@+id/lblPrice"
+                        android:hint="Iznos"
+                        android:layout_marginLeft="5dp" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnStarost"
-        android:layout_below="@+id/spnBenzin"
-        android:layout_toRightOf="@+id/lblStarost"
-        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/kn"
+                        android:id="@+id/lblEuro"
+                        android:layout_alignBottom="@+id/txtPriceBenzin"
+                        android:layout_toRightOf="@+id/txtPriceBenzin"
+                        android:password="false" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Krajnja cijena:"
-        android:id="@+id/lblRezultatBenzin"
-        android:layout_alignTop="@+id/txtRezultat"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/co2"
+                        android:id="@+id/lblCo2Benzin"
+                        android:layout_marginTop="29dp"
+                        android:layout_below="@+id/lblPrice"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_marginTop="52dp"
-        android:clickable="false"
-        android:editable="false"
-        android:hint="Rezultat"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:id="@+id/txtRezultat"
-        android:layout_below="@+id/spnStarost"
-        android:layout_toRightOf="@+id/lblRezultatBenzin" />
+                    <Spinner
+                        android:layout_width="155dp"
+                        android:layout_height="28dp"
+                        android:id="@+id/spnBenzin"
+                        android:layout_toRightOf="@+id/lblCo2Benzin"
+                        android:layout_marginLeft="5dp"
+                        android:layout_above="@+id/lblStarost" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:text="Izračunaj"
-        android:id="@+id/btnBenzin"
-        android:enabled="false"
-        android:layout_marginTop="47dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/txtRezultat"
-        android:layout_centerHorizontal="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/gkm"
+                        android:id="@+id/lblGkm1"
+                        android:layout_alignTop="@+id/lblCo2Benzin"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="200dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/starost"
+                        android:id="@+id/lblStarost"
+                        android:layout_below="@+id/lblCo2Benzin"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="27dp" />
+
+                    <Spinner
+                        android:layout_width="150dp"
+                        android:layout_height="28dp"
+                        android:id="@+id/spnStarost"
+                        android:layout_above="@+id/lblRezultatBenzin"
+                        android:layout_toRightOf="@+id/lblStarost"
+                        android:layout_marginLeft="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/resultat"
+                        android:id="@+id/lblRezultatBenzin"
+                        android:layout_below="@+id/lblStarost"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="43dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:hint="Rezultat"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:id="@+id/txtRezultat"
+                        android:layout_alignBaseline="@+id/lblRezultatBenzin"
+                        android:layout_alignBottom="@+id/lblRezultatBenzin"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toRightOf="@+id/lblRezultatBenzin" />
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:text="Izračunaj"
+                        android:id="@+id/btnBenzin"
+                        android:enabled="false"
+                        android:gravity="center_horizontal"
+                        android:layout_below="@+id/lblRezultatBenzin"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="50dp" />
+                    </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabDizel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"></RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabAbut"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"></RelativeLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 
 
 </RelativeLayout>

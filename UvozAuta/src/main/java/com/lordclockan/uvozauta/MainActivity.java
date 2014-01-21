@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     Spinner spinnerBenzin, spinnerStarost;
     EditText priceBenzinTxt;
     TextView txtRezultat;
-    public int spnBenzinValue = 0, spnDizelValue = 0, spnStarostValue = 0;
+    public int spnBenzinValue = 0, spnDizelValue = 0, spnStarostValue = 0, mPoreznaOsnovica = 0;
     public double sum = 0, starostReturn = 0;
 
     @Override
@@ -32,6 +33,25 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         spinnerStarost = (Spinner) findViewById(R.id.spnStarost);
         priceBenzinTxt = (EditText) findViewById(R.id.txtPriceBenzin);
         txtRezultat = (TextView) findViewById(R.id.txtRezultat);
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+
+        tabHost.setup();
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("benzin");
+        tabSpec.setContent(R.id.tabBenzin);
+        tabSpec.setIndicator("Benzin");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("benzin");
+        tabSpec.setContent(R.id.tabDizel);
+        tabSpec.setIndicator("Dizel");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("about");
+        tabSpec.setContent(R.id.tabAbut);
+        tabSpec.setIndicator("Info");
+        tabHost.addTab(tabSpec);
+
+
 
         ArrayAdapter adapterBenzin = ArrayAdapter.createFromResource(this, R.array.co2_benzin, android.R.layout.simple_spinner_dropdown_item);
         spinnerBenzin.setAdapter(adapterBenzin);
@@ -43,18 +63,23 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         final Button addBtnBenzin = (Button) findViewById(R.id.btnBenzin);
 
-       addBtnBenzin.setOnClickListener(new View.OnClickListener() {
+        addBtnBenzin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               int in = Integer.valueOf(priceBenzinTxt.getText().toString());
+               int inPriceBenzin = Integer.valueOf(priceBenzinTxt.getText().toString());
 
-               sum = (in / 100) * starostReturn;
-               sum += (sum / 100) * spnBenzinValue;
-               String krajnjiRezultat = String.valueOf(sum);
-               txtRezultat.setText(krajnjiRezultat + " €");
-               Toast.makeText(getApplicationContext(), "Izračunaj!!!" + sum, Toast.LENGTH_SHORT).show();
+               poreznaOsnovica();
+               sum = ((float) inPriceBenzin / 100) * starostReturn;
+               double temp = inPriceBenzin - sum;
+               temp += (temp / 100) * mPoreznaOsnovica;
+               double mKrajnjiRezultat = temp;
+               mKrajnjiRezultat += ((temp / 100)) * spnBenzinValue;
+
+               String krajnjiRezultat = String.valueOf(mKrajnjiRezultat);
+               txtRezultat.setText(krajnjiRezultat + " kn");
+               Toast.makeText(getApplicationContext(), "Izračunaj!!!" + mKrajnjiRezultat, Toast.LENGTH_SHORT).show();
            }
-       });
+        });
 
         priceBenzinTxt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -76,6 +101,36 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             }
         });
+    }
+
+    public void poreznaOsnovica() {
+        int in = Integer.valueOf(priceBenzinTxt.getText().toString());
+
+        if ( in >= 0 ) {
+            if (in > 0 && in <= 100000) {
+                mPoreznaOsnovica = 1;
+            } else if (in > 100000 && in <= 150000) {
+                mPoreznaOsnovica = 2;
+            } else if (in > 150000 && in <= 200000) {
+                mPoreznaOsnovica = 4;
+            } else if (in > 200000 && in <= 250000) {
+                mPoreznaOsnovica = 6;
+            } else if (in > 250000 && in <= 300000) {
+                mPoreznaOsnovica = 7;
+            } else if (in > 300000 && in <= 350000) {
+                mPoreznaOsnovica = 8;
+            } else if (in > 350000 && in <= 400000) {
+                mPoreznaOsnovica = 9;
+            } else if (in > 400000 && in <= 450000) {
+                mPoreznaOsnovica = 11;
+            } else if (in > 450000 && in <= 500000) {
+                mPoreznaOsnovica = 12;
+            } else if (in > 500000) {
+                mPoreznaOsnovica = 14;
+            } else {
+                mPoreznaOsnovica = 0;
+            }
+        }
     }
 
 
@@ -155,79 +210,79 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 starostReturn = 0;
                 break;
             case 1:
-                starostReturn = 97;
+                starostReturn = 3;
                 break;
             case 2:
-                starostReturn = 94;
+                starostReturn = 6;
                 break;
             case 3:
-                starostReturn = 91;
+                starostReturn = 9;
                 break;
             case 4:
-                starostReturn = 89;
+                starostReturn = 11;
                 break;
             case 5:
-                starostReturn = 87;
+                starostReturn = 13;
                 break;
             case 6:
-                starostReturn = 85;
+                starostReturn = 15;
                 break;
             case 7:
-                starostReturn = 84;
+                starostReturn = 16;
                 break;
             case 8:
-                starostReturn = 83;
+                starostReturn = 17;
                 break;
             case 9:
-                starostReturn = 82;
+                starostReturn = 18;
                 break;
             case 10:
-                starostReturn = 81;
+                starostReturn = 19;
                 break;
             case 11:
-                starostReturn = 80;
+                starostReturn = 20;
                 break;
             case 12:
-                starostReturn = 77;
+                starostReturn = 23;
                 break;
             case 13:
-                starostReturn = 74;
+                starostReturn = 26;
                 break;
             case 14:
-                starostReturn = 71;
+                starostReturn = 29;
                 break;
             case 15:
-                starostReturn = 69;
+                starostReturn = 31;
                 break;
             case 16:
-                starostReturn = 64.5;
+                starostReturn = 35.5;
                 break;
             case 17:
-                starostReturn = 60;
+                starostReturn = 40;
                 break;
             case 18:
-                starostReturn = 56;
+                starostReturn = 44;
                 break;
             case 19:
-                starostReturn = 52;
+                starostReturn = 48;
                 break;
             case 20:
-                starostReturn = 45;
+                starostReturn = 55;
                 break;
             case 21:
-                starostReturn = 39;
+                starostReturn = 61;
                 break;
             case 22:
-                starostReturn = 34;
+                starostReturn = 66;
                 break;
             case 23:
-                starostReturn = 30;
+                starostReturn = 70;
                 break;
             case 24:
-                starostReturn = 27;
+                starostReturn = 73;
                 break;
             case 25:
-                starostReturn = 26;
+                starostReturn = 74;
                 break;
             default:
                 starostReturn = 0;

@@ -4,6 +4,14 @@
     <string name="app_name">Uvoz auta</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="cijena">Cijena:</string>
+    <string name="naslov">Kalkulator uvoza auta</string>
+    <string name="kn">kn</string>
+    <string name="co2">CO2:</string>
+    <string name="starost">Starost vozila:</string>
+    <string name="gkm">g/km</string>
+    <string name="resultat">Krajnja cijena:</string>
+
     <string-array name="co2_benzin">
         <item></item>
         <item>91 do 100</item>
