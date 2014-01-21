@@ -20,8 +20,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     Spinner spinnerBenzin, spinnerStarost;
     EditText priceBenzinTxt;
     TextView txtRezultat;
-    public int spnBenzinValue = 0, spnDizelValue = 0, co2BenzinSwitch = 0;
-    public double sum = 0;
+    public int spnBenzinValue = 0, spnDizelValue = 0, spnStarostValue = 0;
+    public double sum = 0, starostReturn = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         spinnerBenzin.setAdapter(adapterBenzin);
         spinnerBenzin.setOnItemSelectedListener(this);
 
-        final ArrayAdapter adapterStarost = ArrayAdapter.createFromResource(this, R.array.starostVozila, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter adapterStarost = ArrayAdapter.createFromResource(this, R.array.starostVozila, android.R.layout.simple_spinner_dropdown_item);
         spinnerStarost.setAdapter(adapterStarost);
         spinnerStarost.setOnItemSelectedListener(this);
 
@@ -48,7 +48,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
            public void onClick(View view) {
                int in = Integer.valueOf(priceBenzinTxt.getText().toString());
 
-               sum = ((in / 100) * spnBenzinValue) + in;
+               sum = (in / 100) * starostReturn;
+               sum += (sum / 100) * spnBenzinValue;
                String krajnjiRezultat = String.valueOf(sum);
                txtRezultat.setText(krajnjiRezultat + " €");
                Toast.makeText(getApplicationContext(), "Izračunaj!!!" + sum, Toast.LENGTH_SHORT).show();
@@ -101,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         TextView myText = (TextView) view;
 
         spnBenzinValue = spinnerBenzin.getSelectedItemPosition();
+        spnStarostValue = spinnerStarost.getSelectedItemPosition();
 
         switch (spnBenzinValue) {
             case 0:
@@ -144,6 +146,89 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 break;
             default:
                 spnBenzinValue = 0;
+        }
+
+        switch (spnStarostValue) {
+            case 0:
+                starostReturn = 0;
+                break;
+            case 1:
+                starostReturn = 97;
+                break;
+            case 2:
+                starostReturn = 94;
+                break;
+            case 3:
+                starostReturn = 91;
+                break;
+            case 4:
+                starostReturn = 89;
+                break;
+            case 5:
+                starostReturn = 87;
+                break;
+            case 6:
+                starostReturn = 85;
+                break;
+            case 7:
+                starostReturn = 84;
+                break;
+            case 8:
+                starostReturn = 83;
+                break;
+            case 9:
+                starostReturn = 82;
+                break;
+            case 10:
+                starostReturn = 81;
+                break;
+            case 11:
+                starostReturn = 80;
+                break;
+            case 12:
+                starostReturn = 77;
+                break;
+            case 13:
+                starostReturn = 74;
+                break;
+            case 14:
+                starostReturn = 71;
+                break;
+            case 15:
+                starostReturn = 69;
+                break;
+            case 16:
+                starostReturn = 64.5;
+                break;
+            case 17:
+                starostReturn = 60;
+                break;
+            case 18:
+                starostReturn = 56;
+                break;
+            case 19:
+                starostReturn = 52;
+                break;
+            case 20:
+                starostReturn = 45;
+                break;
+            case 21:
+                starostReturn = 39;
+                break;
+            case 22:
+                starostReturn = 34;
+                break;
+            case 23:
+                starostReturn = 30;
+                break;
+            case 24:
+                starostReturn = 27;
+                break;
+            case 25:
+                starostReturn = 26;
+                break;
+            default:
+                starostReturn = 0;
         }
 
         Toast.makeText(this, "Izabrali ste " + myText.getText(), Toast.LENGTH_SHORT).show();
