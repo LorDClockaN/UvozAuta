@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Uvoz auta</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="co2_benzin">
+        <item></item>
+        <item>91 do 100</item>
+        <item>101 do 110</item>
+        <item>111 do 120</item>
+        <item>121 do 130</item>
+        <item>131 do 140</item>
+        <item>141 do 160</item>
+        <item>161 do 180</item>
+        <item>181 do 200</item>
+        <item>201 do 225</item>
+        <item>226 do 250</item>
+        <item>251 do 300</item>
+        <item>300 i više</item>
+    </string-array>
+
+    <string-array name="co2_dizel">
+        <item></item>
+        <item>86 do 100</item>
+        <item>101 do 110</item>
+        <item>111 do 120</item>
+        <item>121 do 130</item>
+        <item>131 do 140</item>
+        <item>141 do 160</item>
+        <item>161 do 180</item>
+        <item>181 do 200</item>
+        <item>201 do 225</item>
+        <item>226 do 250</item>
+        <item>251 do 300</item>
+        <item>300 i više</item>
+    </string-array>
+
+    <string-array name="poreznaOsnovica">
+        <item>0 do 100.000</item>
+        <item>100.000 do 150.000</item>
+        <item>150.000 do 200.000</item>
+        <item>200.000 do 250.000</item>
+        <item>250.000 do 300.000</item>
+        <item>300.000 do 350.000</item>
+        <item>350.000 do 400.000</item>
+        <item>400.000 do 450.000</item>
+        <item>450.000 do 500.000</item>
+        <item>500.000 i više</item>
+    </string-array>
+
+    <string-array name="starostVozila">
+        <item></item>
+        <item>0 dana do 1 mjesec</item>
+        <item>1 do 2 mjeseca</item>
+        <item>2 do 3 mjeseca</item>
+        <item>3 do 4 mjeseca</item>
+        <item>4 do 5 mjeseci</item>
+        <item>5 do 6 mjeseci</item>
+        <item>6 do 7 mjeseci</item>
+        <item>7 do 8 mjeseci</item>
+        <item>8 do 9 mjeseci</item>
+        <item>9 do 10 mjeseci</item>
+        <item>10 do 12 mjeseci</item>
+        <item>12 do 15 mjeseci</item>
+        <item>15 do 18 mjeseci</item>
+        <item>18 do 21 mjesec</item>
+        <item>21 do 24 mjeseca</item>
+        <item>24 do 30 mjeseci</item>
+        <item>30 do 36 mjeseci</item>
+        <item>36 do 42 mjeseca</item>
+        <item>42 do 48 mjeseci</item>
+        <item>48 do 60 mjeseci</item>
+        <item>60 do 72 mjeseca</item>
+        <item>72 do 84 mjeseca</item>
+        <item>84 do 96 mjeseci</item>
+        <item>96 do 108 mjeseci</item>
+        <item>108 do 120 mjeseci</item>
+    </string-array>
+
+</resources>
