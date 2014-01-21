@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (priceBenzinTxt == null) {
+                if (priceBenzinTxt != null) {
                     addBtnBenzin.setEnabled(!priceBenzinTxt.getText().toString().trim().isEmpty());
                 }
             }
