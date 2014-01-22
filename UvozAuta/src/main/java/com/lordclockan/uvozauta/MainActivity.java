@@ -21,8 +21,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     Spinner spinnerBenzin, spinnerStarost;
     EditText priceBenzinTxt;
     TextView txtRezultat;
-    public int spnBenzinValue = 0, spnDizelValue = 0, spnStarostValue = 0;
-    public double mPoreznaOsnovica = 0, starostReturn = 0, sum_porez = 0, sum_co2 = 0,
+    public int spnBenzinValue = 0, spnDizelValue = 0;
+    public double mPoreznaOsnovica = 0, sum_porez = 0, sum_co2 = 0,
             mKrajnjiRezultat = 0, benzinValueReturn = 0;
 
     @Override
@@ -67,6 +67,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         addBtnBenzin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               if (priceBenzinTxt !== 0) {
                int inPriceBenzin = Integer.valueOf(priceBenzinTxt.getText().toString());
 
                poreznaOsnovica();
@@ -77,6 +78,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                String krajnjiRezultat = String.valueOf(mKrajnjiRezultat);
                txtRezultat.setText(krajnjiRezultat + " kn");
                Toast.makeText(getApplicationContext(), "Izračunaj!!!" + mKrajnjiRezultat, Toast.LENGTH_SHORT).show();
+               }
            }
         });
 
