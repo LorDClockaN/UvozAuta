@@ -15,6 +15,10 @@
     <string name="rezultat_prikaz">REZULTAT</string>
     <string name="trosarina_prikaz">Trošarina</string>
     <string name="iznos">Iznos</string>
+    <string name="info">Unos auta iz EU</string>
+    <string name="info_more">Aplikacija za računanje trošarina prilikom unosa
+     automobila iz Europske Unije u Hrvatsku.</string>
+    <string name="info_author">Made by Davor Bertovic, 2014</string>
 
     <string-array name="co2_benzin">
         <item></item>

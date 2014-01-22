@@ -1,5 +1,6 @@
 package com.lordclockan.uvozauta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
@@ -19,7 +20,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     Spinner spinnerBenzin, spinnerDizel;
     EditText txtPriceBenzin, txtPriceDizel;
-    TextView txtRezultatBenzin, txtTrosarinaBenzin, txtRezultatDizel, txtTrosarinaDizel;
+    TextView txtRezultatBenzin, txtTrosarinaBenzin, txtRezultatDizel, txtTrosarinaDizel, lblAuthor;
     public int spnBenzinValue = 0, spnDizelValue = 0, trosarinaPostotakBenzin = 0,
             trosarinaPostotakDizel = 0;
     public double sum_co2Benzin = 0, benzinValueReturn = 0, sum_co2Dizel = 0, dizelValueReturn = 0;
@@ -30,6 +31,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
+
+        addListenerOnAuthor();
 
         spinnerBenzin = (Spinner) findViewById(R.id.spnBenzin);
         spinnerDizel = (Spinner) findViewById(R.id.spnDizel);
@@ -42,6 +45,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         txtPriceDizel = (EditText) findViewById(R.id.txtPriceDizel);
         txtRezultatDizel = (TextView) findViewById(R.id.txtRezultatDizel);
         txtTrosarinaDizel = (TextView) findViewById(R.id.txtTrosarinaDizel);
+
+
 
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
@@ -160,6 +165,39 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             }
         });
+
+     /*   lblAuthor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendEmail = new Intent(Intent.ACTION_SEND, Uri.parse("davor@losinj.com"));
+                sendEmail.putExtra(Intent.EXTRA_SUBJECT, "Unos Auta INFO");
+                startActivity(sendEmail);
+            }
+        });*/
+    }
+
+    public void addListenerOnAuthor() {
+
+         lblAuthor = (TextView) findViewById(R.id.lblInfo_Author);
+
+         lblAuthor.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent emailIntent =
+                        new Intent(Intent.ACTION_SEND);
+                String[] recipients = new String[]{"davor@losinj.com", "",};
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Unos Auta app info");
+                emailIntent.setType("text/plain");
+                startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                finish();
+
+            }
+
+        });
+
     }
 
  /*   public void poreznaOsnovica() {

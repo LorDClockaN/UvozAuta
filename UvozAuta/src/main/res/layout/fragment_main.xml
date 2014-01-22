@@ -35,6 +35,61 @@
                 android:layout_height="fill_parent">
 
                 <RelativeLayout
+                    android:id="@+id/tabAbut"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/info"
+                        android:id="@+id/lblInfo"
+                        android:textAlignment="center"
+                        android:shadowColor="#5ec0ff"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="120dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/info_more"
+                        android:id="@+id/lblInfo_more"
+                        android:layout_below="@+id/lblInfo"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25dp"
+                        android:textAlignment="center"
+                        android:shadowColor="#5ec0ff"
+                        android:password="false"
+                        android:textSize="17dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/info_author"
+                        android:id="@+id/lblInfo_Author"
+                        android:layout_below="@+id/lblInfo_more"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="68dp"
+                        android:textSize="18dp"
+                        android:shadowColor="#5ec0ff"
+                        android:clickable="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabCalculator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"></RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/tabBenzin"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
@@ -330,17 +385,6 @@
                         android:layout_marginTop="50dp" />
                     </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/tabCalculator"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"></RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/tabAbut"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical"></RelativeLayout>
             </FrameLayout>
         </LinearLayout>
     </TabHost>
