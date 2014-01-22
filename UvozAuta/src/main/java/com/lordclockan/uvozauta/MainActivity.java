@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerBenzin, spinnerStarost;
+    Spinner spinnerBenzin;
     EditText priceBenzinTxt;
     TextView txtRezultat;
     public int spnBenzinValue = 0, spnDizelValue = 0;
@@ -31,7 +31,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         setContentView(R.layout.fragment_main);
 
         spinnerBenzin = (Spinner) findViewById(R.id.spnBenzin);
-        spinnerStarost = (Spinner) findViewById(R.id.spnStarost);
+       // spinnerStarost = (Spinner) findViewById(R.id.spnStarost);
         priceBenzinTxt = (EditText) findViewById(R.id.txtPriceBenzin);
         txtRezultat = (TextView) findViewById(R.id.txtRezultat);
 
