@@ -47,6 +47,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         tabSpec.setIndicator("Dizel");
         tabHost.addTab(tabSpec);
 
+        tabSpec = tabHost.newTabSpec("calculator");
+        tabSpec.setContent(R.id.tabCalculator);
+        tabSpec.setIndicator("Calculator");
+        tabHost.addTab(tabSpec);
+
         tabSpec = tabHost.newTabSpec("about");
         tabSpec.setContent(R.id.tabAbut);
         tabSpec.setIndicator("Info");
