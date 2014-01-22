@@ -43,7 +43,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/naslov"
+                        android:text="@string/naslov_benzin"
                         android:id="@+id/textTitle"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
@@ -134,7 +134,7 @@
                         android:layout_alignParentEnd="true"
                         android:textSize="20dp"
                         android:hint="@string/trosarina_prikaz"
-                        android:id="@+id/txtTrosarina"
+                        android:id="@+id/txtTrosarinaBenzin"
                         android:editable="false"
                         android:layout_toRightOf="@+id/lblRezultatBenzin" />
 
@@ -152,7 +152,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:inputType="numberDecimal"
                         android:ems="10"
                         android:clickable="false"
                         android:editable="false"
@@ -161,13 +160,14 @@
                         android:gravity="center_horizontal"
                         android:textStyle="bold"
                         android:textSize="25dp"
-                        android:id="@+id/txtRezultat"
+                        android:id="@+id/txtRezultatBenzin"
                         android:layout_alignBaseline="@+id/lblRezultatBenzin"
                         android:layout_alignBottom="@+id/lblRezultatBenzin"
                         android:layout_toRightOf="@+id/lblRezultatBenzin"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:textColor="#ff1c00" />
+                        android:textColor="#ff1c00"
+                        android:inputType="none" />
 
                     <Button
                         android:layout_width="150dp"
@@ -186,7 +186,149 @@
                     android:id="@+id/tabDizel"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical"></RelativeLayout>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/naslov_dizel"
+                        android:id="@+id/textTitle"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/cijena"
+                        android:id="@+id/lblPrice"
+                        android:layout_below="@+id/textTitle"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="25dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/txtPriceDizel"
+                        android:layout_alignBottom="@+id/lblPrice"
+                        android:layout_toRightOf="@+id/lblPrice"
+                        android:hint="@string/iznos"
+                        android:layout_marginLeft="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/kn"
+                        android:id="@+id/lblKn"
+                        android:layout_alignBottom="@+id/txtPriceDizel"
+                        android:layout_toRightOf="@+id/txtPriceDizel"
+                        android:numeric="decimal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/co2"
+                        android:id="@+id/lblCo2Dizel"
+                        android:layout_marginTop="29dp"
+                        android:layout_below="@+id/lblPrice"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <Spinner
+                        android:layout_width="155dp"
+                        android:layout_height="28dp"
+                        android:id="@+id/spnDizel"
+                        android:layout_toRightOf="@+id/lblCo2Dizel"
+                        android:layout_marginLeft="5dp"
+                        android:layout_above="@+id/lblTrosarina" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/gkm"
+                        android:id="@+id/lblGkm1"
+                        android:layout_alignTop="@+id/lblCo2Dizel"
+                        android:layout_centerHorizontal="false"
+                        android:layout_marginLeft="200dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:id="@+id/lblTrosarina"
+                        android:layout_marginTop="60dp"
+                        android:layout_below="@+id/lblCo2Dizel"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/trosarina"
+                        android:textSize="19sp"
+                        android:layout_toLeftOf="@+id/btnDizel" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:layout_alignBottom="@+id/lblTrosarina"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="20dp"
+                        android:hint="@string/trosarina_prikaz"
+                        android:id="@+id/txtTrosarinaDizel"
+                        android:editable="false"
+                        android:layout_toRightOf="@+id/lblRezultatDizel" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:id="@+id/lblRezultatDizel"
+                        android:layout_below="@+id/lblTrosarina"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/rezultat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:ems="10"
+                        android:clickable="false"
+                        android:editable="false"
+                        android:hint="@string/rezultat_prikaz"
+                        android:textAlignment="center"
+                        android:gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:textSize="25dp"
+                        android:id="@+id/txtRezultatDizel"
+                        android:layout_alignBaseline="@+id/lblRezultatDizel"
+                        android:layout_alignBottom="@+id/lblRezultatDizel"
+                        android:layout_toRightOf="@+id/lblRezultatDizel"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#ff1c00"
+                        android:inputType="none" />
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:text="Izračunaj"
+                        android:id="@+id/btnDizel"
+                        android:enabled="false"
+                        android:gravity="center_horizontal"
+                        android:layout_below="@+id/lblRezultatDizel"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="50dp" />
+                    </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/tabCalculator"

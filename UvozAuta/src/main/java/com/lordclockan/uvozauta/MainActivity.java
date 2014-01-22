@@ -17,12 +17,14 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinnerBenzin;
-    EditText priceBenzinTxt;
-    TextView txtRezultat, txtTrosarina;
-    public int spnBenzinValue = 0, spnDizelValue = 0, trosarinaPostotak = 0;
-    public double mPoreznaOsnovica = 0, sum_porez = 0, sum_co2 = 0,
-            mKrajnjiRezultat = 0, mTrosarinaRezultat = 0, benzinValueReturn = 0;
+    Spinner spinnerBenzin, spinnerDizel;
+    EditText txtPriceBenzin, txtPriceDizel;
+    TextView txtRezultatBenzin, txtTrosarinaBenzin, txtRezultatDizel, txtTrosarinaDizel;
+    public int spnBenzinValue = 0, spnDizelValue = 0, trosarinaPostotakBenzin = 0,
+            trosarinaPostotakDizel = 0;
+    public double sum_co2Benzin = 0, benzinValueReturn = 0, sum_co2Dizel = 0, dizelValueReturn = 0;
+    public float mTrosarinaRezultatBenzin = 0, mKrajnjiRezultatBenzin = 0,
+            mTrosarinaRezultatDizel = 0, mKrajnjiRezultatDizel = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +32,17 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         setContentView(R.layout.fragment_main);
 
         spinnerBenzin = (Spinner) findViewById(R.id.spnBenzin);
+        spinnerDizel = (Spinner) findViewById(R.id.spnDizel);
        // spinnerStarost = (Spinner) findViewById(R.id.spnStarost);
-        priceBenzinTxt = (EditText) findViewById(R.id.txtPriceBenzin);
-        txtRezultat = (TextView) findViewById(R.id.txtRezultat);
-        txtTrosarina = (TextView) findViewById(R.id.txtTrosarina);
+
+        txtPriceBenzin = (EditText) findViewById(R.id.txtPriceBenzin);
+        txtRezultatBenzin = (TextView) findViewById(R.id.txtRezultatBenzin);
+        txtTrosarinaBenzin = (TextView) findViewById(R.id.txtTrosarinaBenzin);
+
+        txtPriceDizel = (EditText) findViewById(R.id.txtPriceDizel);
+        txtRezultatDizel = (TextView) findViewById(R.id.txtRezultatDizel);
+        txtTrosarinaDizel = (TextView) findViewById(R.id.txtTrosarinaDizel);
+
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
@@ -63,34 +72,56 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         spinnerBenzin.setAdapter(adapterBenzin);
         spinnerBenzin.setOnItemSelectedListener(this);
 
+        ArrayAdapter adapterDizel = ArrayAdapter.createFromResource(this, R.array. co2_dizel, android.R.layout.simple_spinner_dropdown_item);
+        spinnerDizel.setAdapter(adapterDizel);
+        spinnerDizel.setOnItemSelectedListener(this);
+
         /* ArrayAdapter adapterStarost = ArrayAdapter.createFromResource(this, R.array.starostVozila, android.R.layout.simple_spinner_dropdown_item);
         spinnerStarost.setAdapter(adapterStarost);
         spinnerStarost.setOnItemSelectedListener(this); */
 
         final Button addBtnBenzin = (Button) findViewById(R.id.btnBenzin);
+        final Button addBtnDizel = (Button) findViewById(R.id.btnDizel);
 
         addBtnBenzin.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               int inPriceBenzin = Integer.valueOf(priceBenzinTxt.getText().toString());
+               int inPriceBenzin = Integer.valueOf(txtPriceBenzin.getText().toString());
 
                // poreznaOsnovica();
 
-               sum_co2 = (float) inPriceBenzin * benzinValueReturn;
-               trosarinaPostotak = (int) (benzinValueReturn * 100);
-               mTrosarinaRezultat = sum_co2;
-               mKrajnjiRezultat = inPriceBenzin + mTrosarinaRezultat;
+               sum_co2Benzin = (float) inPriceBenzin * benzinValueReturn;
+               trosarinaPostotakBenzin = (int) (benzinValueReturn * 100);
+               mTrosarinaRezultatBenzin = (float) sum_co2Benzin;
+               mKrajnjiRezultatBenzin = inPriceBenzin + mTrosarinaRezultatBenzin;
 
-               String krajnjiRezultat = String.valueOf(mKrajnjiRezultat);
-               String trosarinaRezultat = String.valueOf(mTrosarinaRezultat);
-               txtTrosarina.setText(trosarinaPostotak + " % - " + trosarinaRezultat + " kn");
-               txtRezultat.setText(krajnjiRezultat + " kn");
+               String krajnjiRezultatBenzin = String.valueOf(mKrajnjiRezultatBenzin);
+               String trosarinaRezultatBenzin = String.valueOf(mTrosarinaRezultatBenzin);
+               txtTrosarinaBenzin.setText(trosarinaPostotakBenzin + " % - " + trosarinaRezultatBenzin + " kn");
+               txtRezultatBenzin.setText(krajnjiRezultatBenzin + " kn");
 
                // Toast.makeText(getApplicationContext(), "Izračunaj!!!" + mKrajnjiRezultat, Toast.LENGTH_SHORT).show();
            }
         });
 
-        priceBenzinTxt.addTextChangedListener(new TextWatcher() {
+        addBtnDizel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int inPriceDizel = Integer.valueOf(txtPriceDizel.getText().toString());
+
+                sum_co2Dizel = (float) inPriceDizel * dizelValueReturn;
+                trosarinaPostotakDizel = (int) (dizelValueReturn * 100);
+                mTrosarinaRezultatDizel = (float) sum_co2Dizel;
+                mKrajnjiRezultatDizel = inPriceDizel + mTrosarinaRezultatDizel;
+
+                String krajnjiRezultatDizel = String.valueOf(mKrajnjiRezultatDizel);
+                String trosarinaRezultatDizel = String.valueOf(mTrosarinaRezultatDizel);
+                txtTrosarinaDizel.setText(trosarinaPostotakDizel + " % - " + trosarinaRezultatDizel + " kn");
+                txtRezultatDizel.setText(krajnjiRezultatDizel + " kn");
+            }
+        });
+
+        txtPriceBenzin.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
@@ -98,14 +129,33 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (priceBenzinTxt != null) {
-                    addBtnBenzin.setEnabled(!priceBenzinTxt.getText().toString().trim().isEmpty());
+                if (txtPriceBenzin != null) {
+                    addBtnBenzin.setEnabled(!txtPriceBenzin.getText().toString().trim().isEmpty());
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
 
+
+            }
+        });
+
+        txtPriceDizel.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                if (txtPriceDizel != null) {
+                    addBtnDizel.setEnabled(!txtPriceDizel.getText().toString().trim().isEmpty());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
 
 
             }
@@ -168,6 +218,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         TextView myText = (TextView) view;
 
         spnBenzinValue = spinnerBenzin.getSelectedItemPosition();
+        spnDizelValue = spinnerDizel.getSelectedItemPosition();
         // spnStarostValue = spinnerStarost.getSelectedItemPosition();
 
         switch (spnBenzinValue) {
@@ -175,43 +226,87 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 benzinValueReturn = 0.0;
                 break;
             case 1:
-                benzinValueReturn = 0.01;
+                benzinValueReturn = 0.015;
                 break;
             case 2:
-                benzinValueReturn = 0.02;
+                benzinValueReturn = 0.025;
                 break;
             case 3:
-                benzinValueReturn = 0.03;
+                benzinValueReturn = 0.035;
                 break;
             case 4:
-                benzinValueReturn = 0.06;
+                benzinValueReturn = 0.07;
                 break;
             case 5:
-                benzinValueReturn = 0.10;
+                benzinValueReturn = 0.115;
                 break;
             case 6:
-                benzinValueReturn = 0.14;
-                break;
-            case 7:
                 benzinValueReturn = 0.16;
                 break;
-            case 8:
+            case 7:
                 benzinValueReturn = 0.18;
                 break;
-            case 9:
-                benzinValueReturn = 0.21;
+            case 8:
+                benzinValueReturn = 0.20;
                 break;
-            case 10:
+            case 9:
                 benzinValueReturn = 0.23;
                 break;
-            case 11:
+            case 10:
                 benzinValueReturn = 0.27;
                 break;
-            case 12:
+            case 11:
                 benzinValueReturn = 0.29;
+                break;
+            case 12:
+                benzinValueReturn = 0.31;
                 break;
             default:
                 benzinValueReturn = 0;
+        }
+
+        switch (spnDizelValue) {
+            case 0:
+                dizelValueReturn = 0.0;
+                break;
+            case 1:
+                dizelValueReturn = 0.01;
+                break;
+            case 2:
+                dizelValueReturn = 0.02;
+                break;
+            case 3:
+                dizelValueReturn = 0.03;
+                break;
+            case 4:
+                dizelValueReturn = 0.06;
+                break;
+            case 5:
+                dizelValueReturn = 0.10;
+                break;
+            case 6:
+                dizelValueReturn = 0.14;
+                break;
+            case 7:
+                dizelValueReturn = 0.16;
+                break;
+            case 8:
+                dizelValueReturn = 0.18;
+                break;
+            case 9:
+                dizelValueReturn = 0.21;
+                break;
+            case 10:
+                dizelValueReturn = 0.23;
+                break;
+            case 11:
+                dizelValueReturn = 0.27;
+                break;
+            case 12:
+                dizelValueReturn = 0.29;
+                break;
+            default:
+                dizelValueReturn = 0;
         }
 
         /* switch (spnStarostValue) {
