@@ -41,7 +41,8 @@
                         android:id="@+id/textTitle"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="15dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -62,7 +63,7 @@
                         android:id="@+id/txtPriceBenzin"
                         android:layout_alignBottom="@+id/lblPrice"
                         android:layout_toRightOf="@+id/lblPrice"
-                        android:hint="Iznos"
+                        android:hint="@string/iznos"
                         android:layout_marginLeft="5dp" />
 
                     <TextView
@@ -70,10 +71,10 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="@string/kn"
-                        android:id="@+id/lblEuro"
+                        android:id="@+id/lblKn"
                         android:layout_alignBottom="@+id/txtPriceBenzin"
                         android:layout_toRightOf="@+id/txtPriceBenzin"
-                        android:password="false" />
+                        android:numeric="decimal" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -92,7 +93,7 @@
                         android:id="@+id/spnBenzin"
                         android:layout_toRightOf="@+id/lblCo2Benzin"
                         android:layout_marginLeft="5dp"
-                        android:layout_above="@+id/lblStarost" />
+                        android:layout_above="@+id/lblTrosarina" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -108,23 +109,39 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/starost"
-                        android:id="@+id/lblStarost"
+                        android:id="@+id/lblTrosarina"
+                        android:layout_marginTop="60dp"
                         android:layout_below="@+id/lblCo2Benzin"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="27dp" />
+                        android:text="@string/trosarina"
+                        android:textSize="19sp"
+                        android:layout_toLeftOf="@+id/btnBenzin" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:layout_alignBottom="@+id/lblTrosarina"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="20dp"
+                        android:hint="@string/trosarina_prikaz"
+                        android:id="@+id/txtTrosarina"
+                        android:editable="false"
+                        android:layout_toRightOf="@+id/lblRezultatBenzin" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/resultat"
                         android:id="@+id/lblRezultatBenzin"
-                        android:layout_below="@+id/lblStarost"
+                        android:layout_below="@+id/lblTrosarina"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginTop="43dp" />
+                        android:layout_marginTop="20dp"
+                        android:text="@string/rezultat" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -133,17 +150,18 @@
                         android:ems="10"
                         android:clickable="false"
                         android:editable="false"
-                        android:hint="Rezultat"
+                        android:hint="@string/rezultat_prikaz"
                         android:textAlignment="center"
                         android:gravity="center_horizontal"
                         android:textStyle="bold"
-                        android:textSize="20dp"
+                        android:textSize="25dp"
                         android:id="@+id/txtRezultat"
                         android:layout_alignBaseline="@+id/lblRezultatBenzin"
                         android:layout_alignBottom="@+id/lblRezultatBenzin"
+                        android:layout_toRightOf="@+id/lblRezultatBenzin"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_toRightOf="@+id/lblRezultatBenzin" />
+                        android:textColor="#ff1c00" />
 
                     <Button
                         android:layout_width="150dp"
@@ -155,7 +173,8 @@
                         android:layout_below="@+id/lblRezultatBenzin"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="50dp" />
-                    </RelativeLayout>
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/tabDizel"

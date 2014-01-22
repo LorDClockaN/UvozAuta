@@ -14,16 +14,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner spinnerBenzin;
     EditText priceBenzinTxt;
-    TextView txtRezultat;
-    public int spnBenzinValue = 0, spnDizelValue = 0;
+    TextView txtRezultat, txtTrosarina;
+    public int spnBenzinValue = 0, spnDizelValue = 0, trosarinaPostotak = 0;
     public double mPoreznaOsnovica = 0, sum_porez = 0, sum_co2 = 0,
-            mKrajnjiRezultat = 0, benzinValueReturn = 0;
+            mKrajnjiRezultat = 0, mTrosarinaRezultat = 0, benzinValueReturn = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
        // spinnerStarost = (Spinner) findViewById(R.id.spnStarost);
         priceBenzinTxt = (EditText) findViewById(R.id.txtPriceBenzin);
         txtRezultat = (TextView) findViewById(R.id.txtRezultat);
+        txtTrosarina = (TextView) findViewById(R.id.txtTrosarina);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
@@ -69,14 +69,19 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
            public void onClick(View view) {
                int inPriceBenzin = Integer.valueOf(priceBenzinTxt.getText().toString());
 
-               poreznaOsnovica();
-               sum_porez = (float) inPriceBenzin * mPoreznaOsnovica;
+               // poreznaOsnovica();
+
                sum_co2 = (float) inPriceBenzin * benzinValueReturn;
-               mKrajnjiRezultat = inPriceBenzin + sum_porez + sum_co2;
+               trosarinaPostotak = (int) (benzinValueReturn * 100);
+               mTrosarinaRezultat = sum_co2;
+               mKrajnjiRezultat = inPriceBenzin + mTrosarinaRezultat;
 
                String krajnjiRezultat = String.valueOf(mKrajnjiRezultat);
+               String trosarinaRezultat = String.valueOf(mTrosarinaRezultat);
+               txtTrosarina.setText(trosarinaPostotak + " % - " + trosarinaRezultat + " kn");
                txtRezultat.setText(krajnjiRezultat + " kn");
-               Toast.makeText(getApplicationContext(), "Izračunaj!!!" + mKrajnjiRezultat, Toast.LENGTH_SHORT).show();
+
+               // Toast.makeText(getApplicationContext(), "Izračunaj!!!" + mKrajnjiRezultat, Toast.LENGTH_SHORT).show();
            }
         });
 
@@ -102,7 +107,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         });
     }
 
-    public void poreznaOsnovica() {
+ /*   public void poreznaOsnovica() {
         int in = Integer.valueOf(priceBenzinTxt.getText().toString());
 
         if ( in >= 0 ) {
@@ -130,7 +135,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 mPoreznaOsnovica = 0;
             }
         }
-    }
+    } */
 
 
     @Override
@@ -287,7 +292,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 starostReturn = 0;
         } */
 
-        Toast.makeText(this, "Izabrali ste " + myText.getText(), Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Izabrali ste " + myText.getText(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

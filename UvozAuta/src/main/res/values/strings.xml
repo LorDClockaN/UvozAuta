@@ -8,9 +8,12 @@
     <string name="naslov">Kalkulator uvoza auta</string>
     <string name="kn">kn</string>
     <string name="co2">CO2:</string>
-    <string name="starost">Starost vozila:</string>
+    <string name="trosarina">Trošarina:</string>
     <string name="gkm">g/km</string>
-    <string name="resultat">Krajnja cijena:</string>
+    <string name="rezultat">Krajnja cijena:</string>
+    <string name="rezultat_prikaz">REZULTAT</string>
+    <string name="trosarina_prikaz">Trošarina</string>
+    <string name="iznos">Iznos</string>
 
     <string-array name="co2_benzin">
         <item></item>
