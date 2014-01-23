@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
@@ -26,6 +27,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public double sum_co2Benzin = 0, benzinValueReturn = 0, sum_co2Dizel = 0, dizelValueReturn = 0;
     public float mTrosarinaRezultatBenzin = 0, mKrajnjiRezultatBenzin = 0,
             mTrosarinaRezultatDizel = 0, mKrajnjiRezultatDizel = 0;
+
+    // Calculator part
+    EditText mnumber1text, mnumber2text;
+    TextView mtotal;
+    Button mclear, msummarize, mminus, mdivide, mmultiply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         txtRezultatDizel = (TextView) findViewById(R.id.txtRezultatDizel);
         txtTrosarinaDizel = (TextView) findViewById(R.id.txtTrosarinaDizel);
 
+        // Calculator
+        mnumber1text=(EditText)findViewById(R.id.num1text);
+        mnumber2text=(EditText)findViewById(R.id.num2text);
+        mtotal = (TextView)findViewById(R.id.total);
+        mclear = (Button)findViewById(R.id.clear);
 
 
 
@@ -174,6 +185,73 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 startActivity(sendEmail);
             }
         });*/
+
+    }
+
+    // Calculator
+    public void summarize(View v) {
+        if (mnumber1text.getText().toString().isEmpty() ||
+                mnumber2text.getText().toString().isEmpty()){
+            Toast msg = Toast.makeText(getBaseContext(), "Morate upisati brojeve!",
+                    Toast.LENGTH_LONG);
+            msg.show();
+        } else {
+            Double num1 = Double.parseDouble(mnumber1text.getText().toString());
+            Double num2 = Double.parseDouble(mnumber2text.getText().toString());
+            Double tot=num1+num2;
+
+            mtotal.setText("Total: " + tot.toString());
+        }
+    }
+
+    public void minus(View v) {
+        if (mnumber1text.getText().toString().isEmpty() ||
+                mnumber2text.getText().toString().isEmpty()){
+            Toast msg = Toast.makeText(getBaseContext(), "Morate upisati brojeve!",
+                    Toast.LENGTH_LONG);
+            msg.show();
+        } else {
+            Double num1 = Double.parseDouble(mnumber1text.getText().toString());
+            Double num2 = Double.parseDouble(mnumber2text.getText().toString());
+            Double tot=num1-num2;
+
+            mtotal.setText("Total: " + tot.toString());
+        }
+    }
+
+    public void multiply(View v) {
+        if (mnumber1text.getText().toString().isEmpty() ||
+                mnumber2text.getText().toString().isEmpty()){
+            Toast msg = Toast.makeText(getBaseContext(), "Morate upisati brojeve!",
+                    Toast.LENGTH_LONG);
+            msg.show();
+        } else {
+            Double num1 = Double.parseDouble(mnumber1text.getText().toString());
+            Double num2 = Double.parseDouble(mnumber2text.getText().toString());
+            Double tot=num1*num2;
+
+            mtotal.setText("Total: " + tot.toString());
+        }
+    }
+
+    public void divide(View v) {
+        if (mnumber1text.getText().toString().isEmpty() ||
+                mnumber2text.getText().toString().isEmpty()){
+            Toast msg1 = Toast.makeText(getBaseContext(), "Morate upisati brojeve!",
+                    Toast.LENGTH_LONG);
+            msg1.show();
+        } else if (mnumber2text.getText().toString().contentEquals("0") ||
+                mnumber2text.getText().toString().contentEquals("0.0")) {
+            Toast msg2 = Toast.makeText(getBaseContext(), "Ne možete dijeliti sa NULOM!!",
+                    Toast.LENGTH_LONG);
+            msg2.show();
+        } else {
+            Double num1 = Double.parseDouble(mnumber1text.getText().toString());
+            Double num2 = Double.parseDouble(mnumber2text.getText().toString());
+            Double tot=num1 / num2;
+
+            mtotal.setText("Total: " + tot.toString());
+        }
     }
 
     public void addListenerOnAuthor() {
@@ -438,5 +516,18 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     }
 
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        mclear.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                mnumber1text.setText("");
+                mnumber2text.setText("");
+                mtotal.setText("Total: ");
+            }
+        });
+    }
 }
