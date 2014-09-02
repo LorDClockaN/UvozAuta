@@ -9,7 +9,7 @@
     <string name="naslov_dizel">Uvoz dizel auta</string>
     <string name="kn">kn</string>
     <string name="co2">CO2:</string>
-    <string name="trosarina">Trošarina:</string>
+    <string name="trosarina">Ukupna trošarina:</string>
     <string name="gkm">g/km</string>
     <string name="rezultat">Krajnja cijena:</string>
     <string name="rezultat_prikaz">REZULTAT</string>
@@ -19,6 +19,15 @@
     <string name="info_more">Aplikacija za računanje trošarina prilikom unosa
      automobila iz Europske Unije u Hrvatsku.</string>
     <string name="info_author">Made by Davor Bertovic, 2014</string>
+    <string name="calculator_title">Mali kalkulator</string>
+    <string name="trosarina_naslov">Trošarine</string>
+    <string name="katalog_trosarina">Katalog orijentacijskih vrijednosti rabljenih motornih vozila:
+        866kn</string>
+    <string name="zoll_tablica">Trošak zoll tablice i osiguranje: 750kn</string>
+    <string name="potvrda_proizvodjaca">Potvrda proizvođača: 400kn</string>
+    <string name="potvrda_sukladnost">Potvrda o sukladnosti (homologacija): 500kn</string>
+    <string name="trosarina_ekologija">Trošarina i naknada za ekologiju: 1750kn</string>
+    <string name="ukupna_trosarina">Trošarina bez CO2: 4266kn</string>
 
     <string-array name="co2_benzin">
         <item></item>

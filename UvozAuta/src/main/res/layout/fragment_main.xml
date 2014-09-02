@@ -35,120 +35,6 @@
                 android:layout_height="fill_parent">
 
                 <RelativeLayout
-                    android:id="@+id/tabCalculator"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Broj 1:"
-                        android:id="@+id/num1"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentLeft="true"
-                        android:textSize="18dp"/>
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/num1text"
-                        android:layout_below="@+id/num1"
-                        android:layout_alignLeft="@+id/num1"
-                        android:numeric="decimal"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Broj 2:"
-                        android:id="@+id/num2"
-                        android:layout_below="@+id/num1text"
-                        android:layout_alignLeft="@+id/num1text"
-                        android:layout_marginTop="15dp"
-                        android:textSize="18dp"/>
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/num2text"
-                        android:layout_below="@+id/num2"
-                        android:layout_alignLeft="@+id/num2"
-                        android:numeric="decimal"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:layout_below="@+id/num2text"
-                        android:layout_marginBottom="800dp"
-                        android:id="@+id/linearLayout">
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+"
-                            android:id="@+id/sum"
-                            android:onClick="summarize"
-                            android:layout_below="@+id/num2text"
-                            android:layout_alignLeft="@+id/num2text"
-                            android:textStyle="bold"
-                            android:textSize="20dp"
-                            />
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="-"
-                            android:id="@+id/minus"
-                            android:layout_toRightOf="@+id/sum"
-                            android:onClick="minus"
-                            android:layout_below="@+id/num2text"
-                            android:textStyle="bold"
-                            android:textSize="20dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="*"
-                            android:id="@+id/multiply"
-                            android:layout_toRightOf="@+id/minus"
-                            android:onClick="multiply"
-                            android:layout_below="@+id/num2text"
-                            android:textStyle="bold"
-                            android:textSize="20dp"/>
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="/"
-                            android:id="@+id/division"
-                            android:layout_toRightOf="@+id/multiply"
-                            android:onClick="divide"
-                            android:layout_below="@+id/num2text"
-                            android:textStyle="bold"
-                            android:textSize="20dp"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rezultat: "
-                        android:id="@+id/total"
-                        android:textSize="25dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignLeft="@+id/linearLayout"/>
-
-                    <Button
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Clear"
-                        android:id="@+id/clear"
-                        android:layout_below="@+id/total"
-                        android:layout_centerHorizontal="true"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
                     android:id="@+id/tabBenzin"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
@@ -235,7 +121,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:text="@string/trosarina"
-                        android:textSize="19sp"
+                        android:textSize="19dp"
                         android:layout_toLeftOf="@+id/btnBenzin" />
 
                     <EditText
@@ -443,6 +329,212 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="50dp" />
                     </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabTrosarina"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/trosarina_naslov"
+                        android:id="@+id/lblTrosarinaTitle"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="25dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/katalog_trosarina"
+                        android:id="@+id/lblKatalog"
+                        android:layout_below="@+id/lblTrosarinaTitle"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zoll_tablica"
+                        android:id="@+id/lblZoll"
+                        android:layout_below="@+id/lblKatalog"
+                        android:layout_alignLeft="@+id/lblKatalog"
+                        android:layout_alignStart="@+id/lblKatalog"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/potvrda_proizvodjaca"
+                        android:id="@+id/lblPotvrda"
+                        android:layout_below="@+id/lblZoll"
+                        android:layout_alignLeft="@+id/lblZoll"
+                        android:layout_alignStart="@+id/lblZoll"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/potvrda_sukladnost"
+                        android:id="@+id/lblSukladnost"
+                        android:layout_below="@+id/lblPotvrda"
+                        android:layout_alignLeft="@+id/lblPotvrda"
+                        android:layout_alignStart="@+id/lblPotvrda"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trosarina_ekologija"
+                        android:id="@+id/lblTrosarina"
+                        android:layout_below="@+id/lblSukladnost"
+                        android:layout_alignLeft="@+id/lblSukladnost"
+                        android:layout_alignStart="@+id/lblSukladnost"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/ukupna_trosarina"
+                        android:id="@+id/lblUkupnaTrosarina"
+                        android:layout_marginTop="50dp"
+                        android:layout_below="@+id/lblTrosarina"
+                        android:layout_alignLeft="@+id/lblTrosarina"
+                        android:layout_alignStart="@+id/lblTrosarina" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tabCalculator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Broj 1:"
+                        android:id="@+id/num1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="18dp"
+                        android:layout_marginTop="50dp" />
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/num1text"
+                        android:layout_below="@+id/num1"
+                        android:layout_alignLeft="@+id/num1"
+                        android:numeric="decimal"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Broj 2:"
+                        android:id="@+id/num2"
+                        android:layout_below="@+id/num1text"
+                        android:layout_alignLeft="@+id/num1text"
+                        android:layout_marginTop="15dp"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/num2text"
+                        android:layout_below="@+id/num2"
+                        android:layout_alignLeft="@+id/num2"
+                        android:numeric="decimal"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_below="@+id/num2text"
+                        android:layout_marginBottom="800dp"
+                        android:id="@+id/linearLayout">
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:id="@+id/sum"
+                            android:onClick="summarize"
+                            android:layout_below="@+id/num2text"
+                            android:layout_alignLeft="@+id/num2text"
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:id="@+id/minus"
+                            android:layout_toRightOf="@+id/sum"
+                            android:onClick="minus"
+                            android:layout_below="@+id/num2text"
+                            android:textStyle="bold"
+                            android:textSize="20dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*"
+                            android:id="@+id/multiply"
+                            android:layout_toRightOf="@+id/minus"
+                            android:onClick="multiply"
+                            android:layout_below="@+id/num2text"
+                            android:textStyle="bold"
+                            android:textSize="20dp"/>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:id="@+id/division"
+                            android:layout_toRightOf="@+id/multiply"
+                            android:onClick="divide"
+                            android:layout_below="@+id/num2text"
+                            android:textStyle="bold"
+                            android:textSize="20dp"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rezultat: "
+                        android:id="@+id/total"
+                        android:textSize="25dp"
+                        android:layout_below="@+id/num2text"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="91dp" />
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Clear"
+                        android:id="@+id/clear"
+                        android:layout_below="@+id/total"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/calculator_title"
+                        android:id="@+id/lblCalculatorTitle"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp" />
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/tabAbut"
